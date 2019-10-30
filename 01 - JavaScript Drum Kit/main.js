@@ -1,27 +1,27 @@
-const keys = [...document.querySelectorAll('audio')];
-const squares = [...document.querySelectorAll('div[data-key]')];
+const audios = [...document.querySelectorAll('audio')];
+const tiles = [...document.querySelectorAll('div[data-key]')];
 
 const removeClass = () => {
-	squares.forEach(square => {
-		square.classList.remove("playing");
+	tiles.forEach(tile => {
+		tile.classList.remove("playing");
 	})
 
 }
 const addClass = (code) => {
-	squares.forEach(square => {
-		square.dataset.key == code ? square.classList.add("playing") : null;
+	tiles.forEach(tile => {
+		tile.dataset.key == code ? tile.classList.add("playing") : null;
 	})
 }
-const keyPressed = (e) => {
+const playDrumKitSound = (e) => {
 	const code = e.keyCode;
-	keys.forEach(key => {
+	audios.forEach(audio => {
 		addClass(code);
 		setTimeout(removeClass, 50);
-		if (key.dataset.key == code) {
-			key.currentTime = 0;
-			key.play();
+		if (audio.dataset.key == code) {
+			audio.currentTime = 0;
+			audio.play();
 		}
 	})
 }
 
-document.addEventListener('keydown', e => keyPressed(e));
+document.addEventListener('keydown', e => playDrumKitSound(e));
