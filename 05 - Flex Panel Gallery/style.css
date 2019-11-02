@@ -110,10 +110,10 @@ p:nth-last-child(1) {
 	flex-grow: 10;
 }
 
-.active p:nth-child(1) {
+.fullyActive p:nth-child(1) {
 	transform: translateY(0);
 }
 
-.active p:nth-last-child(1) {
+.fullyActive p:nth-last-child(1) {
 	transform: translateY(0)
 }
