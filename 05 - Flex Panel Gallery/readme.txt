@@ -3,3 +3,4 @@ It seems to me more useful for most galleries. If you want, you can replace the 
 
 07.11.2019
 I have noticed that i had forgotten to commit the solution after day 05, so i commited it as a 'add initial files for day 06', fixing it right now with proper commit title.
+Also I made mistake naming the commit "06" instead of "05", still learning how to do that proper tho.
