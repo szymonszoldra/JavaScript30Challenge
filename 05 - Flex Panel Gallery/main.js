@@ -18,5 +18,6 @@ const handleParagraphsVisibility = (e) => {
 	}
 }
 
+
 panels.forEach(panel => panel.addEventListener('click', e => handleClick(e)));
 panels.forEach(panel => panel.addEventListener('transitionend', e => handleParagraphsVisibility(e)));
