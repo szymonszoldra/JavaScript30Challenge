@@ -11,27 +11,26 @@ let hue = 0;
 let direction = true;
 
 const draw = e => {
-	if (!isDrawing) return;
+  if (!isDrawing) return;
 
-	ctx.strokeStyle = `hsl(${hue}, 100%, 50%)`;
-	ctx.beginPath();
-	ctx.moveTo(lastX, lastY);
-	ctx.lineTo(e.offsetX, e.offsetY);
-	ctx.stroke();
+  ctx.strokeStyle = `hsl(${hue}, 100%, 50%)`;
+  ctx.beginPath();
+  ctx.moveTo(lastX, lastY);
+  ctx.lineTo(e.offsetX, e.offsetY);
+  ctx.stroke();
 
-	[lastX, lastY] = [e.offsetX, e.offsetY];
-	hue >= 360 ? hue = 0 : hue++;
+  [lastX, lastY] = [e.offsetX, e.offsetY];
+  hue >= 360 ? hue = 0 : hue++;
 
+  console.log(direction, ctx.lineWidth)
 
-	console.log(direction, ctx.lineWidth)
-
-	ctx.lineWidth >= 100 || ctx.lineWidth <= 1 ? direction = !direction : null;
-	direction ? ctx.lineWidth++ : ctx.lineWidth--;
+  ctx.lineWidth >= 100 || ctx.lineWidth <= 1 ? direction = !direction : null;
+  direction ? ctx.lineWidth++ : ctx.lineWidth--;
 }
 
 canvas.addEventListener('mousedown', e => {
-	isDrawing = true;
-	[lastX, lastY] = [e.offsetX, e.offsetY];
+  isDrawing = true;
+  [lastX, lastY] = [e.offsetX, e.offsetY];
 });
 canvas.addEventListener('mousemove', e => draw(e));
 canvas.addEventListener('mouseup', () => isDrawing = false);

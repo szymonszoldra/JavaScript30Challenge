@@ -1,9 +1,9 @@
 const dogs = [{
-	name: 'Snickers',
-	age: 2
+  name: 'Snickers',
+  age: 2
 }, {
-	name: 'hugo',
-	age: 8
+  name: 'hugo',
+  age: 8
 }];
 
 // Regular
@@ -49,14 +49,15 @@ console.count('world!');
 console.count('world!');
 
 // timing
+const ENDPOINT = 'https://api.github.com/users/szymonszoldra';
 
 console.time('Fetching data')
-fetch('https://api.github.com/users/szymonszoldra')
-	.then(data => data.json())
-	.then(data => {
-		console.timeEnd('Fetching data');
-		console.log(data);
-	})
+fetch(ENDPOINT)
+  .then(data => data.json())
+  .then(data => {
+    console.timeEnd('Fetching data');
+    console.log(data);
+  })
 
 // table
 

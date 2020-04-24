@@ -9,30 +9,28 @@ const ranges = player.querySelectorAll('.player__slider');
 const togglePlay = () => video.paused ? video.play() : video.pause();
 const updateButton = () => toggle.textContent = !video.paused ? '▌▌' : '►';
 const skip = e => {
-	const skippingTime = parseInt(e.target.dataset.skip);
-	video.currentTime += skippingTime;
-	changeProgressBar();
+  const skippingTime = parseInt(e.target.dataset.skip);
+  video.currentTime += skippingTime;
+  changeProgressBar();
 }
 
 const range = e => video[e.target.name] = e.target.value;
 
 const changeProgressBar = () => {
-	const {
-		currentTime,
-		duration
-	} = video;
-	const percent = currentTime / duration * 100;
-	progressBar.style.flexBasis = `${percent}%`;
+  const {
+    currentTime,
+    duration
+  } = video;
+  const percent = currentTime / duration * 100;
+  progressBar.style.flexBasis = `${percent}%`;
 
 }
 
 const handleTimeChange = e => {
-	const percent = e.offsetX / progress.offsetWidth;
-	video.currentTime = video.videoWidth * percent;
-	changeProgressBar();
+  const percent = e.offsetX / progress.offsetWidth;
+  video.currentTime = video.videoWidth * percent;
+  changeProgressBar();
 }
-
-
 
 video.addEventListener('click', togglePlay);
 video.addEventListener('play', updateButton);
