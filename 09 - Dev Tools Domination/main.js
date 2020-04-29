@@ -51,13 +51,18 @@ console.count('world!');
 // timing
 const ENDPOINT = 'https://api.github.com/users/szymonszoldra';
 
-console.time('Fetching data')
-fetch(ENDPOINT)
-  .then(data => data.json())
-  .then(data => {
+console.time('Fetching data');
+(async () => {
+  try {
+    const response = await fetch(ENDPOINT);
+    const data = await response.json();
     console.timeEnd('Fetching data');
     console.log(data);
-  })
+  } catch (err) {
+    throw new Error(err);
+  }
+})()
+
 
 // table
 
