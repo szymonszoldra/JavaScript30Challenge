@@ -1,3 +1,9 @@
+/*
+ *Credit David Walsh (https://davidwalsh.name/javascript-debounce-function)
+ *
+ * ^that is why var is being used here
+ */
+
 function debounce(func, wait = 20, immediate = true) {
   var timeout;
   return function () {
