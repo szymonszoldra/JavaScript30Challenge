@@ -4,12 +4,15 @@ const input = document.querySelector('.search');
 const ul = document.querySelector('ul');
 const citiesData = [];
 
-fetch(ENDPOINT)
-  .then(res => res.json())
-  .then(res => citiesData.push(...res))
-  .catch(err => {
+(async () => {
+  try {
+    const response = await fetch(ENDPOINT);
+    const data = await response.json();
+    citiesData.push(...data);
+  } catch (err) {
     throw new Error(err)
-  })
+  }
+})()
 
 const handleChange = (exp, cities) => {
   const value = exp.toLowerCase();
