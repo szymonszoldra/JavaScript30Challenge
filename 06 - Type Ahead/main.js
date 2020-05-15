@@ -10,7 +10,7 @@ const citiesData = [];
     const data = await response.json();
     citiesData.push(...data);
   } catch (err) {
-    throw new Error(err)
+    console.error(err);
   }
 })()
 
