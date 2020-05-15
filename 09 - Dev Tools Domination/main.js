@@ -59,7 +59,7 @@ console.time('Fetching data');
     console.timeEnd('Fetching data');
     console.log(data);
   } catch (err) {
-    throw new Error(err);
+    console.error(err);
   }
 })()
 
